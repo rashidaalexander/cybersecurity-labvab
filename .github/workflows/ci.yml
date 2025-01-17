@@ -1,0 +1,42 @@
+name: Cybersecurity Lab Setup
+
+on:
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  setup_lab:
+    runs-on: ubuntu-latest  # Runs on the latest Ubuntu virtual machine
+
+    steps:
+    # Step 1: Check out the repository code
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    # Step 2: Install Docker
+    - name: Set up Docker
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y docker.io
+
+    # Step 3: Build Docker image with cybersecurity tools
+    - name: Build Docker Image
+      run: |
+        docker build -t cybersecurity-lab .
+
+    # Step 4: Run Red Team tools (Metasploit, Nmap, etc.)
+    - name: Run Red Team (Metasploit)
+      run: |
+        docker run -it --rm cybersecurity-lab metasploit-framework
+
+    # Step 5: Run Blue Team tools (Suricata for defense)
+    - name: Run Blue Team (Suricata)
+      run: |
+        docker run -it --rm cybersecurity-lab suricata -c /etc/suricata/suricata.yaml -i eth0
+
+    # Step 6: Generate a report from the results
+    - name: Generate Report
+      run: |
+        mkdir -p reports
+        echo "Metasploit and Suricata logs" > reports/cybersecurity_report.txt
+        echo "Logs saved successfully." >> reports/cybersecurity_report.txt
+        echo "Report generated: reports/cybersecurity_report.txt"
