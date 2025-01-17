@@ -1,0 +1,27 @@
+# Cybersecurity Testing Lab
+
+## Overview
+This project sets up a **cybersecurity lab** for practicing both offensive (Red Team) and defensive (Blue Team) security techniques. All tools and configurations are set up to run directly in GitHub without the need to install anything locally.
+
+## How to Use
+
+1. **Clone this repository (Optional)**:
+   - If you want to clone this to your local machine:
+     ```bash
+     git clone https://github.com/yourusername/cybersecurity-lab.git
+     ```
+
+2. **Run the lab setup in GitHub Actions**:
+   - Go to the **Actions** tab on this GitHub repository.
+   - Select the **"Cybersecurity Lab Setup"** workflow and click **Run workflow**.
+
+3. **Red Team (Offensive)**:
+   - The lab includes tools like **Metasploit** for penetration testing.
+   
+4. **Blue Team (Defensive)**:
+   - You can practice defending against attacks using tools like **Suricata** for intrusion detection.
+
+5. **Check the Results**:
+   - After the workflow finishes, the generated logs and reports will be available in the **Reports** section of this repository.
+
+## Enjoy the Lab!
